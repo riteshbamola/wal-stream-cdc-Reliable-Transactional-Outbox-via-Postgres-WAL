@@ -13,3 +13,12 @@ export interface OrderDTO {
   createdAt: Date;
   updatedAt: Date;
 }
+
+export interface OutboxEvent {
+  id: string;
+  aggregate_id: string;
+  aggregate_type: string;
+  event_type: string;
+  payload: any;
+  created_at: string;
+}
