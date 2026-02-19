@@ -1,0 +1,5 @@
+const startCDC = async () => {
+  
+}
+
+startCDC();

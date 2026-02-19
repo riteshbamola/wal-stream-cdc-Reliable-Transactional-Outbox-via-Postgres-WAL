@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: debezium/postgres:16
+    container_name: docker-postgres-1
+    volumes:
+      # Use the exact folder name 'initdb' visible in your sidebar
+      - ./initdb:/docker-entrypoint-initdb.d
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=riteshbamola
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=orders_db
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:
