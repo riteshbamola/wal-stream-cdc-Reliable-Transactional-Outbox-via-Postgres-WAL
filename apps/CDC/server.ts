@@ -1,6 +1,8 @@
 import { startStreaming } from "./src/transformer";
+import { connectKafka } from "src/kafka-producer";
+const startCDC = async () =>
+  await connectKafka();
 
-const startCDC = async () => {
   await startStreaming();
   console.log("Started");
 };

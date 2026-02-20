@@ -22,3 +22,10 @@ export interface OutboxEvent {
   payload: any;
   created_at: string;
 }
+
+export interface eventExportDTO {
+  userId: string;
+  productId: string;
+  quantity: number;
+  amount: number;
+}
