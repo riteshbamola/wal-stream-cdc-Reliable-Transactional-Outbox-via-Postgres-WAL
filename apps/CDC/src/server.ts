@@ -1,5 +1,0 @@
-const startCDC = async () => {
-  
-}
-
-startCDC();
