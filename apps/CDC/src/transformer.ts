@@ -70,6 +70,8 @@ service.on("data", async (lsn: string, message: any) => {
     if (!event.event_type || !event.payload) {
       throw new InvalidEventError("Invalid event format");
     }
+    console.log(event);
+    console.log("topic", event.event_type);
 
     await producer.send({
       topic: event.event_type,

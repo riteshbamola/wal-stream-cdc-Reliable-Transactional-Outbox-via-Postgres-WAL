@@ -10,7 +10,7 @@ const createTopics = async () => {
   await admin.connect();
 
   await admin.createTopics({
-    topics: [{ topic: "Order_Created", numPartitions: 1 }],
+    topics: [{ topic: "ORDER_CREATED", numPartitions: 1 }],
   });
 
   await admin.disconnect();
@@ -18,17 +18,17 @@ const createTopics = async () => {
 
 const consumer = kafka.consumer({ groupId: "order-service" });
 
-const connectKafka = async () => {
+export const connectKafka = async () => {
   await createTopics();
   await consumer.connect();
 
-  await consumer.subscribe({ topic: "Order_Created", fromBeginning: false });
+  await consumer.subscribe({ topic: "ORDER_CREATED", fromBeginning: false });
 
   await consumer.run({
     autoCommit: false,
     eachMessage: async ({ topic, partition, message }) => {
       switch (topic) {
-        case "Order_Created":
+        case "ORDER_CREATED":
           console.log({
             value: message.value?.toString(),
           });
